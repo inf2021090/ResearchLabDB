@@ -79,3 +79,11 @@ CREATE TABLE participation (
     PRIMARY KEY (member_id, project_id)
 );
 
+--- WARNING following snippet is gemini generated
+CREATE TABLE course_teaching (
+    member_id INT REFERENCES member(member_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    course_id INT REFERENCES course(course_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    academic_year VARCHAR(9) NOT NULL, -- π.χ. '2025-2026'
+    semester_type VARCHAR(10) NOT NULL CHECK (semester_type IN ('Fall', 'Spring')),
+    PRIMARY KEY (member_id, course_id, academic_year, semester_type)
+);
