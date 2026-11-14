@@ -36,3 +36,30 @@ CREATE TABLE publication (
     venue_id INT NOT NULL REFERENCES venue(venue_id) ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
+CREATE TABLE project (
+    project_id SERIAL PRIMARY KEY,
+    title VARCHAR(400) NOT NULL,
+    abstract TEXT,
+    start_date DATE NOT NULL,
+    end_date DATE,
+    budget NUMERIC(10, 2) NOT NULL CHECK (budget > 0), 
+    funding_agency VARCHAR(150) NOT NULL,
+    chief_researcher INT NOT NULL REFERENCES member(member_id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    CONSTRAINT valid_project_dates CHECK (end_date IS NULL OR end_date >= start_date)
+);
+
+
+CREATE TABLE authoring (
+    member_id INT REFERENCES member(member_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    pub_id INT REFERENCES publication(pub_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    author_order INT NOT NULL CHECK (author_order > 0),
+    PRIMARY KEY (member_id, pub_id)
+);
+
+CREATE TABLE participation (
+    member_id INT REFERENCES member(member_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    project_id INT REFERENCES project(project_id) ON UPDATE CASCADE ON DELETE CASCADE,
+    role VARCHAR(100) NOT NULL,
+    PRIMARY KEY (member_id, project_id)
+);
+
