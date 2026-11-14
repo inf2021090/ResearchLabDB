@@ -48,6 +48,22 @@ CREATE TABLE project (
     CONSTRAINT valid_project_dates CHECK (end_date IS NULL OR end_date >= start_date)
 );
 
+CREATE TABLE news (
+    news_id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    publish_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    author_id INT REFERENCES member(member_id) ON UPDATE CASCADE ON DELETE SET NULL
+);
+
+CREATE TABLE course (
+    course_id SERIAL PRIMARY KEY,
+    course_code VARCHAR(50) NOT NULL UNIQUE,
+    title VARCHAR(150) NOT NULL,
+    level VARCHAR(20) NOT NULL CHECK (level IN ('Undergraduate', 'Postgraduate')),
+    semester INT NOT NULL CHECK (semester BETWEEN 1 AND 12),
+    ects INT NOT NULL CHECK (ects > 0)
+);
 
 CREATE TABLE authoring (
     member_id INT REFERENCES member(member_id) ON UPDATE CASCADE ON DELETE CASCADE,
