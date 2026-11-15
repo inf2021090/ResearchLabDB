@@ -13,12 +13,13 @@ class MemberRecord(BaseModel):
         default=None, 
         description="academic or personal webpage URL or null if none"
     )
-    short_cv: str = Field(description="2-3 sentence  bio it can be totally random as it is for educational perpuses only)
+    short_cv: str = Field(description="2-3 sentence bio it can be totally random as it is for educational purposes only")
     category: int = Field(
-        description="category ID integer referencing member_category (e.g., 1 for Μέλη ΔΕΠ, 5 for Προπτυχιακοί Φοιτητές)"
+        description="category ID integer referencing member_category (e.g., 1 for Μέλη ΔΕΠ, 5 για Προπτυχιακοί Φοιτητές)"
     )
-    registration_number: str = Field(
-        description="A unique university ID or registration number string (e.g., 'AIS2026001', 'PLH88421')"
+    registration_number: Optional[str] = Field(
+        default=None,
+        description="A unique university ID or registration number string, or null for categories 1 and 2"
     )
 
 class MemberListContainer(BaseModel):
@@ -26,7 +27,7 @@ class MemberListContainer(BaseModel):
 
 def escape_sql_string(val: Optional[str]) -> str:
     """Safely formats strings for PostgreSQL INSERTs and handles NULLs."""
-    if val is None or val.strip() == "":
+    if val is None or val.strip() == "" or val.strip().lower() == "null":
         return "NULL"
     escaped = val.replace("'", "''")
     return f"'{escaped}'"
@@ -34,15 +35,39 @@ def escape_sql_string(val: Optional[str]) -> str:
 def main():
     client = genai.Client()
 
-    # Begging our AI Overlord for mercy
-    prompt = (
-        "MT PROMPT GOES HERE"
-    )
+    # YOUR EXACT GREEK PROMPT (wrapped in triple quotes """ for Python safety)
+    prompt = """
+    Δημιούργησε 30 εγγραφές για τον πίνακα 'member' (στήλες: first_name, last_name, email, web_page, short_cv, category, registration_number) ενός πανεπιστημιακού ερευνητικού εργαστηρίου.
+
+    Κατηγορίες (category):
+    1 = Μέλη ΔΕΠ (ακριβώς 3 άτομα)
+    2 = Ερευνητές (ακριβώς 3 άτομα)
+    3 = Υποψήφιοι Διδάκτορες (ακριβώς 4 άτομα)
+    4 = Μεταπτυχιακοί Φοιτητές (ακριβώς 6 άτομα)
+    5 = Προπτυχιακοί Φοιτητές (ακριβώς 14 άτομα)
+
+    Κανόνες που ΠΡΕΠΕΙ να τηρήσεις αυστηρά:
+    1. Ονόματα και Επώνυμα: Ρεαλιστικά ελληνικά ονόματα και επώνυμα.
+    2. Αριθμός Μητρώου (registration_number) - όλα αυστηρά μοναδικά:
+       - Για Μέλη ΔΕΠ (1) και Ερευνητές (2): null
+       - Για Υποψήφιους Διδάκτορες (3): 'DOC' + συνδυασμός 6 τυχαίων ψηφίων (πx 'DOC482910')
+       - Για Μεταπτυχιακούς Φοιτητές (4): 'AIS' + συνδυασμός 6 τυχαίων ψηφίων (πx 'AIS739201')
+       - Για Προπτυχιακούς Φοιτητές (5): 'ICS' + συνδυασμός 6 τυχαίων ψηφίων (πx 'ICS194827')
+    3. Emails (όλα μοναδικά, με λατινικούς πεζούς χαρακτήρες):
+       - Για Μέλη ΔΕΠ (1) και Ερευνητές (2): το 1ο γράμμα του μικρού ονόματος + ολόκληρο το επώνυμο + @chaduni.gr (πx Νίκος Παπαδόπουλος -> npapadopoulos@chaduni.gr).
+       - Για τις κατηγορίες 3, 4 και 5: ο αριθμός μητρώου τους (με πεζά) + @chaduni.gr (πx ics194827@chaduni.gr).
+    4. Web Page (web_page):
+       - Όλα τα Μέλη ΔΕΠ (1), όλοι οι Ερευνητές (2) και όλοι οι Υποψήφιοι Διδάκτορες (3) να έχουν URL (π.χ. 'https://chaduni.gr/~npapadopoulos').
+       - Από τους Μεταπτυχιακούς (4) να έχουν URL μόνο 4 άτομα (οι υπόλοιποι 2 null).
+       - Από τους Προπτυχιακούς (5) να έχουν URL μόνο 2 άτομα (οι υπόλοιποι 12 null).
+    5. Σύντομο Βιογραφικό (short_cv):
+       - 2 με 3 γραμμές τυχαίο κείμενο dummy text για κάθε μέλος, δεν χρειάζεται να είναι ρεαλιστικό.
+    """
 
     print("Asking Gemini to generate member records...")
     response = client.models.generate_content(
-        model='gemini-2.5-flash',
-        contents=prompt,
+        model="gemini-3.7-flash",
+        contents=prompt.strip(),
         config=types.GenerateContentConfig(
             response_mime_type="application/json",
             response_schema=MemberListContainer,
@@ -55,6 +80,7 @@ def main():
     # generate sql
     sql_filename = "seed_members.sql"
     with open(sql_filename, "w", encoding="utf-8") as f:
+        f.write("-- PostgreSQL Seed Data for member table\n")
         f.write("INSERT INTO member (first_name, last_name, email, web_page, short_cv, category, registration_number) VALUES\n")
         
         sql_rows = []
@@ -66,8 +92,7 @@ def main():
                 f"{escape_sql_string(m.web_page)}, "
                 f"{escape_sql_string(m.short_cv)}, "
                 f"{m.category}, "
-                f"{escape_sql_string(m.registration_number)}
-                )"
+                f"{escape_sql_string(m.registration_number)})"
             )
             sql_rows.append(row)
             
@@ -86,10 +111,10 @@ def main():
                 m.web_page if m.web_page else "",
                 m.short_cv,
                 m.category,
-                m.registration_number
+                m.registration_number if m.registration_number else ""
             ])
 
-    print(f"✅ Created '{sql_filename}' and '{csv_filename}'!")
+    print(f"✅ Created '{sql_filename}' and '{csv_filename}' successfully!")
 
 if __name__ == "__main__":
     main()
