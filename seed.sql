@@ -103,5 +103,64 @@ INSERT INTO course_teaching (member_id, course_id, academic_year, semester_type)
 (5, 5, '2025-2026', 'Fall'),   -- mixaniki mathisi
 (5, 10, '2025-2026', 'Spring'); -- big data
 
+INSERT INTO project (title, abstract, start_date, end_date, budget, 
+  funding_agency, chief_researcher) VALUES 
+  
+-- eleni konstantinou (cv / drones)
+(
+    'AgroVision: Autonomous Drone Surveillance for Precision Agriculture',
+    'Deep learning and multispectral computer vision models deployed on UAVs for early crop disease detection and yield estimation.',
+    '2024-03-01',
+    '2027-02-28',
+    485000.00,
+    'Horizon Europe',
+    2
+),
+
+-- athanassios georgiou (robotics)
+(
+    'RoboSort: Adaptive Robotic Grasping in Unstructured Warehouses',
+    'Reinforcement learning and 3D point cloud processing for autonomous robotic arms handling deformable objects.',
+    '2023-09-15',
+    '2026-09-14',
+    320000.00,
+    'ΕΛΙΔΕΚ (HFRI)',
+    6
+),
+
+-- nikos papadopoulos (maritime ai)
+(
+    'SeaRouteAI: Predictive Maritime Traffic and Fuel Optimization',
+    'Spatio-temporal graph neural networks analyzing AIS vessel data and weather forecasts to reduce maritime carbon emissions.',
+    '2025-01-10',
+    NULL,
+    610000.00,
+    'ΕΣΠΑ - Ερευνώ Καινοτομώ',
+    1
+),
+
+-- giorgos vlachos (nlp)
+(
+    'HellasLegalNLP: Automated Summarization and QA for Greek Legislation',
+    'Domain-specific large language models fine-tuned on Greek legal corpora for rapid document retrieval and compliance checks.',
+    '2024-11-01',
+    '2026-10-31',
+    195000.00,
+    'ΕΛΙΔΕΚ (HFRI)',
+    4
+),
+
+-- dimitris anastasiou (edge / medical)
+(
+    'MedEdge: Privacy-Preserving Federated Learning for Clinical Diagnostics',
+    'Distributed edge computing framework enabling hospitals to collaboratively train diagnostic AI models without sharing raw patient data.',
+    '2023-05-01',
+    '2025-12-31',
+    415000.00,
+    'Horizon Europe',
+    3
+);
+
+
 
 
