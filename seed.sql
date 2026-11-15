@@ -241,6 +241,80 @@ VALUES (
     3
 );
 
+INSERT INTO publication (title, pub_year, external_authors, area_id, venue_id) VALUES 
+(
+    'Deep Learning Approaches for Autonomous Agricultural Drones', 
+    2024, 
+    'John Doe, Ioannis Foufotos', 
+    3, 
+    4  
+),
+(
+    'Efficient Spatio-Temporal Graph Neural Networks for Maritime Traffic', 
+    2025, 
+    NULL, 
+    1, 
+    1 
+),
+(
+    'Privacy-Preserving Federated Learning in Medical Edge Devices', 
+    2023, 
+    'K. Miller', 
+    1, 
+    2  
+),
+(
+    'Large Language Models for Automated Legal Document Summarization', 
+    2025, 
+    'Basilis Prixaarhakis', 
+    2, 
+    5  
+),
+(
+    'Real-Time Object Detection on Edge Devices using TensorRT', 
+    2024, 
+    'Mariza Smith', 
+    3, 
+    7  
+),
+(
+    'Sentiment Analysis of Greek Social Media Text using BERT', 
+    2024, 
+    'S. Karagiannis', 
+    2, 
+    8  
+);
+
+INSERT INTO authoring (member_id, pub_id, author_order) VALUES 
+(2, 1, 1),
+(7, 1, 2),
+(1, 2, 1),
+(4, 2, 2),
+(3, 3, 1),
+(7, 5, 1), 
+(6, 6, 1); 
+
+--  the following code is gemini generated
+INSERT INTO participation (member_id, project_id, role) VALUES 
+-- Στο Έργο 1 (AgroVision): συμμετέχει η Ελένη (id=2) ως Συντονίστρια και ο Κωνσταντίνος (id=7) ως Ερευνητής
+(2, 1, 'Συντονίστρια Έργου'),
+(7, 1, 'Κύριος Ερευνητής AI'),
+
+-- Στο Έργο 2 (SeaRouteAI): συμμετέχει ο Γεώργιος (id=1) ως Επιστημονικός Υπεύθυνος και ο Νικόλαος (id=5)
+(1, 2, 'Επιστημονικός Υπεύθυνος'),
+(5, 2, 'Μηχανικός IoT'),
+
+-- Στο Έργο 3 (MedEdge): συμμετέχει ο Δημήτριος (id=3) ως Αρχιμηχανικός Ασφάλειας
+(3, 3, 'Αρχιμηχανικός Ασφάλειας'),
+
+-- Επιπλέον συμμετοχές για ποικιλία στα reports:
+-- Η Μαρία (id=4) συμμετέχει στο Έργο 1
+(4, 1, 'Ειδικός Computer Vision'),
+
+-- Η Αικατερίνη (id=6) συμμετέχει στο Έργο 2
+(6, 2, 'Ειδικός NLP');
+
+--- gemini generated code stoped 
 
 
 
