@@ -1,4 +1,15 @@
 SELECT 
+    pr.title AS project_title,
+    pr.budget AS project_budget,
+    pr.funding_agency,
+    CONCAT(m.first_name, ' ', m.last_name) AS faculty_member_name,
+    m.email
+FROM project pr
+JOIN member m ON pr.chief_researcher = m.member_id
+ORDER BY pr.budget DESC
+LIMIT 3;
+
+SELECT 
     CONCAT(m.first_name, ' ', m.last_name) AS faculty_member_name,
     COALESCE(SUM(c.ects), 0) AS total_ects_taught_2025_2026,
     COUNT(DISTINCT n.news_id) AS total_news_published,
