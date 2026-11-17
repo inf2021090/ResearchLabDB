@@ -72,3 +72,45 @@ INSERT INTO member (first_name, last_name, email, web_page, short_cv, category, 
 ('Παρασκευή', 'Μαρκοπούλου', 'ics152637@chaduni.gr', NULL, 'Φοιτήτρια 3ου έτους με ενδιαφέρον στην ασφάλεια εφαρμογών.', 5, 'ICS152637'),
 ('Αθανάσιος', 'Ρήγας', 'ics738291@chaduni.gr', NULL, 'Τελειόφοιτος φοιτητής που ασχολείται με την ανάπτυξη κινητών εφαρμογών.', 5, 'ICS738291'),
 ('Όλγα', 'Διαμαντή', 'ics293847@chaduni.gr', NULL, 'Προπτυχιακή φοιτήτρια 4ου έτους με εστίαση στην ανάλυση δεδομένων.', 5, 'ICS293847');
+
+
+INSERT INTO thematic_area (area_name) VALUES
+('Artificial Intelligence'),
+('Natural Language Processing (NLP)'),
+('Computer Vision (CV)'),
+('Cloud and Distributed Systems'),
+('Cybersecurity and Cryptography'),
+('Human-Computer Interaction (HCI)');
+
+INSERT INTO publication (title, pub_year, external_authors, area_id, venue_id) VALUES 
+-- Δημοσιεύσεις από Μέλη ΔΕΠ & Ερευνητές & Διδάκτορες
+('Advanced Query Optimization in Distributed Database Systems', 2024, NULL, 4, 2),
+('Zero-Knowledge Proofs for Cloud Privacy Enhancement', 2025, 'A. Smith', 5, 1),
+('Accessible User Interfaces for Visually Impaired Users: A Case Study', 2024, NULL, 6, 9),
+('Energy-Efficient Task Scheduling in Edge-Cloud Continuum', 2025, 'D. Brown', 4, 3),
+('Post-Quantum Cryptography Protocols in Modern Networks', 2026, NULL, 5, 4),
+('Gesture-Based Interaction in Virtual Reality Environments', 2024, 'M. Johnson', 6, 8),
+('Machine Learning Models for Predictive Maintenance in Smart Cities', 2025, NULL, 1, 6),
+('Automated Code Smell Detection using Deep Graph Neural Networks', 2025, 'P. White', 2, 5),
+('Federated Learning Security Vulnerabilidades and Mitigations', 2024, NULL, 5, 1),
+('Semantic Parsing of Legal Documents using Transformer Architectures', 2026, 'L. Green', 2, 7),
+('Real-time 3D Hand Tracking for Augmented Reality', 2024, NULL, 3, 4),
+('Resource Allocation Strategies in Serverless Computing', 2025, NULL, 4, 2),
+('Multi-factor Authentication Usability Analysis', 2023, 'K. Adams', 5, 9),
+('Emotion Recognition in Greek Text via Fine-tuned LLMs', 2025, NULL, 2, 8),
+('Autonomous Navigation of Drones in Complex Indoor Spaces', 2026, NULL, 3, 4),
+('Blockchain-based Secure Health Records Sharing', 2024, 'R. Taylor', 5, 1),
+('An Empirical Study on Software Refactoring Patterns', 2023, NULL, 2, 7),
+('Cross-lingual Transfer Learning for Low-Resource Languages', 2025, NULL, 2, 5),
+('Low-Latency Communication Protocols for IoT Devices', 2025, 'S. Miller', 4, 3),
+('Voice-Controlled Interfaces for Smart Home Automation', 2024, NULL, 6, 9),
+
+-- Δημοσιεύσεις για Διδάκτορες & Φοιτητές που προσθέτουμε
+('Lightweight Encryption for Resource-Constrained IoT Nodes', 2025, NULL, 5, 8),
+('Comparative Analysis of Community Detection Algorithms in Dynamic Graphs', 2024, NULL, 1, 7),
+('Static Code Analysis Tools for Security Flaws Detection', 2025, NULL, 2, 9),
+('Predictive Analytics on Health Care Datasets using Python', 2024, NULL, 1, 10),
+('Web-based Business Intelligence Dashboard Implementation', 2025, NULL, 4, 7),
+('Wireless Sensor Network Routing Protocols Optimization', 2024, NULL, 4, 8);
+
+
