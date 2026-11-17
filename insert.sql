@@ -114,3 +114,127 @@ INSERT INTO publication (title, pub_year, external_authors, area_id, venue_id) V
 ('Wireless Sensor Network Routing Protocols Optimization', 2024, NULL, 4, 8);
 
 
+INSERT INTO project (title, abstract, start_date, end_date, budget, funding_agency, chief_researcher) VALUES 
+-- Καθηγητής 1 (Γεώργιος Παπαδόπουλος)
+('AgroVision: Autonomous Drone Surveillance', 'Deep learning and multispectral computer vision models for early crop disease detection.', '2024-03-01', '2027-02-28', 485000.00, 'Horizon Europe', 1),
+('SeaRouteAI: Predictive Maritime Traffic', 'Spatio-temporal graph neural networks analyzing AIS vessel data to reduce emissions.', '2025-01-10', NULL, 610000.00, 'ΕΣΠΑ - Ερευνώ Καινοτομώ', 1),
+
+-- Καθηγήτρια 2 (Ελένη Οικονόμου)
+('MedEdge: Privacy-Preserving Federated Learning', 'Distributed edge computing framework for clinical diagnostics without sharing raw data.', '2023-05-01', '2025-12-31', 415000.00, 'Horizon Europe', 2),
+('QueryOptima: Distributed Database Optimization', 'Advanced query optimization techniques for large-scale distributed database systems.', '2024-06-15', '2027-06-14', 340000.00, 'ΕΛΙΔΕΚ (HFRI)', 2),
+
+-- Καθηγητής 3 (Δημήτριος Κωνσταντίνου)
+('CyberShield: IoT Security & Privacy', 'Cryptography and intrusion detection systems for critical IoT infrastructures.', '2023-09-01', '2026-08-31', 390000.00, 'Horizon Europe', 3),
+('ZeroTrust Cloud: Secure Architectures', 'Zero-trust security frameworks for cloud-native enterprise environments.', '2024-11-01', NULL, 290000.00, 'ΕΣΠΑ - Ερευνώ Καινοτομώ', 3),
+
+-- Καθηγητής 4 (Αντώνιος Βλάχος)
+('CloudSimAI: Intelligent Resource Management', 'ML-driven orchestration for minimizing latency in edge-cloud data centers.', '2024-06-01', '2027-05-31', 520000.00, 'Horizon Europe', 4),
+('HellasLegalNLP: Greek Legal Summarization', 'Domain-specific LLMs fine-tuned on Greek legal corpora for rapid document retrieval.', '2024-11-01', '2026-10-31', 195000.00, 'ΕΛΙΔΕΚ (HFRI)', 4),
+
+-- Καθηγήτρια 5 (Καλλιόπη Δημητριάδη)
+('SecureCodeAI: Automated Vulnerability Patching', 'Static and dynamic code analysis powered by transformers to fix legacy code flaws.', '2023-10-01', '2026-09-30', 280000.00, 'ΕΛΙΔΕΚ (HFRI)', 5),
+('DevOpsMetrics: CI/CD Pipeline Optimization', 'Automated metrics collection and bottleneck analysis in large software projects.', '2025-01-15', NULL, 230000.00, 'ΕΣΠΑ - Ερευνώ Καινοτομώ', 5),
+
+-- Καθηγητής 6 (Χρήστος Αλεξίου)
+('SmartGridSec: 5G Smart Energy Grids', 'Advanced cryptography and security frameworks for 5G energy distribution networks.', '2025-02-01', NULL, 450000.00, 'ΕΣΠΑ - Ερευνώ Καινοτομώ', 6),
+('RoboSort: Adaptive Robotic Grasping', 'Reinforcement learning and 3D point cloud processing for robotic warehouse arms.', '2023-09-15', '2026-09-14', 320000.00, 'ΕΛΙΔΕΚ (HFRI)', 6),
+
+-- Καθηγήτρια 7 (Σοφία Μιχαηλίδου)
+('VR-Heritage: 3D Cultural Reconstruction', 'High-fidelity computer vision 3D reconstruction of historical monuments for VR.', '2024-01-15', '2025-12-31', 210000.00, 'ΕΣΠΑ - Ερευνώ Καινοτομώ', 7),
+('ImmersiveUI: Accessible Interfaces', 'Designing accessible virtual and augmented reality interfaces for visually impaired users.', '2024-09-01', '2027-08-31', 270000.00, 'Horizon Europe', 7),
+
+-- Καθηγητής 8 (Παύλος Ανδρέου)
+('BioMedEdge: Wearable Health Monitoring', 'Wearable sensor integration with federated learning for real-time health anomaly detection.', '2023-07-01', '2026-06-30', 390000.00, 'Horizon Europe', 8),
+('GreenIoT: Low-Power Sensor Networks', 'Energy-harvesting architectural designs for smart city IoT sensor deployments.', '2024-04-01', NULL, 310000.00, 'ΕΛΙΔΕΚ (HFRI)', 8),
+
+-- Καθηγήτρια 9 (Μαρία-Λουίζα Ζαφειρίου)
+('EduTech AI: Adaptive Learning Systems', 'Personalized learning pathways using student interaction analytics and deep learning.', '2024-10-01', '2027-09-30', 350000.00, 'Horizon Europe', 9),
+('AccessibleWeb: WCAG Compliance Tools', 'Automated web accessibility evaluation and real-time correction browser extensions.', '2025-03-01', NULL, 180000.00, 'ΕΣΠΑ - Ερευνώ Καινοτομώ', 9),
+
+-- Καθηγητής 10 (Βασίλειος Καρράς)
+('ServerlessCloud: Function Orchestration', 'Cost-effective function scheduling and cold-start reduction in serverless platforms.', '2023-11-01', '2026-10-31', 420000.00, 'Horizon Europe', 10),
+('EdgeAnalytics: Real-time Big Data', 'Streaming analytics frameworks for decentralized edge computing environments.', '2024-05-15', NULL, 380000.00, 'ΕΛΙΔΕΚ (HFRI)', 10),
+
+-- Επιπλέον έργα γενικής κάλυψης
+('DeepVision: Medical Image Segmentation', 'Convolutional neural networks for automated tumor detection in MRI scans.', '2023-02-01', '2025-01-31', 310000.00, 'Horizon Europe', 1),
+('HateSpeechDetector: Social Media Moderation', 'Multilingual NLP models for detecting abusive language and misinformation online.', '2024-08-01', '2026-07-31', 240000.00, 'ΕΣΠΑ - Ερευνώ Καινοτομώ', 4),
+('QuantumSafe: Post-Quantum Cryptography', 'Evaluating post-quantum cryptographic algorithms in commercial web servers.', '2025-01-01', NULL, 500000.00, 'Horizon Europe', 3),
+('SmartLogistics: Autonomous Fleet Routing', 'AI-driven routing and inventory optimization for last-mile delivery logistics.', '2024-03-15', '2026-03-14', 330000.00, 'ΕΣΠΑ - Ερευνώ Καινοτομώ', 6),
+('BioinformaticsAI: Genomics Data Mining', 'Graph neural networks for analyzing protein-protein interaction networks.', '2023-06-01', '2025-12-31', 370000.00, 'Horizon Europe', 2);
+
+
+
+
+INSERT INTO participation (member_id, project_id, role) VALUES 
+-- ==========================================
+-- 1. ΜΕΛΗ ΔΕΠ (IDs 1-10) - Άνιση κατανομή
+-- ==========================================
+(1, 1, 'Project Coordinator'), (1, 2, 'Principal Investigator'), (1, 7, 'Senior AI Advisor'), (1, 12, 'Robotics AI Consultant'), (1, 21, 'Project Coordinator'),
+(2, 3, 'Project Coordinator'), (2, 4, 'Project Coordinator'), (2, 20, 'Big Data Consultant'), (2, 25, 'Principal Investigator'),
+(3, 5, 'Project Coordinator'), (3, 6, 'Project Coordinator'), (3, 11, 'Security Advisor'), (3, 23, 'Principal Investigator'),
+(4, 7, 'Project Coordinator'), (4, 8, 'Project Coordinator'), (4, 22, 'Principal Investigator'),
+(5, 9, 'Project Coordinator'), (5, 10, 'Project Coordinator'),
+(6, 11, 'Project Coordinator'), (6, 12, 'Project Coordinator'), (6, 24, 'Principal Investigator'),
+(7, 13, 'Project Coordinator'), (7, 14, 'Project Coordinator'),
+(8, 15, 'Project Coordinator'), (8, 16, 'Project Coordinator'),
+(9, 17, 'Project Coordinator'), (9, 18, 'Project Coordinator'),
+(10, 19, 'Project Coordinator'), (10, 20, 'Project Coordinator'),
+
+-- ==========================================
+-- 2. ΕΡΕΥΝΗΤΕΣ (IDs 11-18)
+-- ==========================================
+(11, 1, 'Senior Computer Vision Researcher'), (11, 13, '3D Vision Specialist'), (11, 21, 'Lead Vision Engineer'), (11, 25, 'Data Mining Researcher'),
+(12, 2, 'Cloud Systems Architect'), (12, 7, 'Edge Computing Expert'), (12, 19, 'Serverless Specialist'),
+(13, 3, 'Cryptography Specialist'), (13, 5, 'IoT Security Lead'), (13, 23, 'Post-Quantum Lead'),
+(14, 4, 'Senior NLP Researcher'), (14, 8, 'Greek LLM Specialist'), (14, 22, 'Moderation AI Lead'),
+(15, 6, 'Cloud Security Expert'), (15, 11, '5G Security Auditor'),
+(16, 12, 'Robotics Software Lead'), (16, 24, 'Logistics AI Architect'),
+(17, 14, 'HCI & VR Specialist'),
+(18, 15, 'BioMed Senior Lead'), (18, 16, 'Green IoT Researcher'),
+
+-- ==========================================
+-- 3. ΥΠΟΨΗΦΙΟΙ ΔΙΔΑΚΤΟΡΕΣ (IDs 19-33)
+-- ==========================================
+(19, 1, 'PhD Researcher (Deep Learning)'), (19, 21, 'Segmentation Engineer'), (19, 24, 'Routing AI Dev'),
+(20, 4, 'Query Optimizer Developer'), (20, 20, 'Streaming Analytics Dev'),
+(21, 5, 'Protocol Analyst'), (21, 11, 'Smart Grid Analyst'), (21, 23, 'Quantum Crypto Tester'),
+(22, 8, 'NLP Developer'), (22, 22, 'Hate Speech Model Dev'),
+(23, 6, 'Zero-Trust Developer'),
+(24, 7, 'Resource Scheduler Dev'), (24, 19, 'Function Orchestrator Dev'),
+(25, 9, 'Code Repair Engineer'), (25, 10, 'CI/CD Pipeline Analyst'),
+(26, 16, 'Sensor Network Dev'),
+(27, 13, 'VR Reconstruction Dev'),
+(28, 15, 'Wearable Sensor Dev'), (28, 3, 'Federated Health Dev'),
+(29, 12, 'Grasping Algorithm Dev'),
+(30, 14, 'Accessibility Tester'), (30, 18, 'WCAG Extension Dev'),
+(31, 17, 'Adaptive Learning Dev'),
+(32, 18, 'UI Accessibility Dev'),
+(33, 25, 'Graph Neural Network Dev'),
+
+-- ==========================================
+-- 4. ΜΕΤΑΠΤΥΧΙΑΚΟΙ ΦΟΙΤΗΤΕΣ (IDs 34-43)
+-- ==========================================
+(34, 1, 'Junior Data Analyst (MSc)'), (34, 21, 'Medical Data Prep (MSc)'),
+(35, 2, 'Junior Systems Dev (MSc)'),
+(36, 5, 'Security Tester (MSc)'), (36, 23, 'Crypto Benchmarks (MSc)'),
+(37, 8, 'NLP Assistant (MSc)'),
+(38, 10, 'DevOps Engineer (MSc)'),
+(39, 7, 'Cloud Developer (MSc)'),
+(40, 9, 'Software Tester (MSc)'),
+(41, 16, 'IoT Assistant (MSc)'),
+(42, 13, 'UI/UX Developer (MSc)'),
+(43, 4, 'Database Admin (MSc)'),
+
+-- ==========================================
+-- 5. ΠΡΟΠΤΥΧΙΑΚΟΙ ΦΟΙΤΗΤΕΣ (IDs 44-53)
+-- ==========================================
+(44, 1, 'Research Assistant (Undergrad)'),
+(45, 2, 'Lab Assistant (Undergrad)'),
+(46, 5, 'Security Intern (Undergrad)'),
+(47, 8, 'Junior NLP Developer (Undergrad)'),
+(48, 9, 'Testing Support (Undergrad)'),
+(49, 12, 'Robotics Lab Assistant (Undergrad)'),
+(50, 13, '3D Modeling Intern (Undergrad)'),
+(51, 15, 'Hardware Assistant (Undergrad)'),
+(52, 17, 'Frontend Intern (Undergrad)'),
+(53, 20, 'Data Cleaning Assistant (Undergrad)');
