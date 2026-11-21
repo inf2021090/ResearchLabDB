@@ -65,3 +65,8 @@ BEGIN
     ORDER BY activity_year DESC, activity_type, title;
 END;
 $$;
+
+BEGIN;
+CALL report_member_activities_by_year(1, NULL, 'my_cur');
+FETCH ALL IN "my_cur";
+COMMIT;
